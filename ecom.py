@@ -112,7 +112,7 @@ with st.expander("📋 View Simulation Data Table"):
     st.dataframe(df_display, use_container_width=True)
 
 # Total Uplift Summary
-st.markdown(f"<p style='color:black; font-weight:600;'>✅ Total Revenue Gain Simulated: ₹{sum(data['Estimated Gain (INR)']):,.0f} (15.03% Growth Achieved)</p>", unsafe_allow_html=True)
+st.markdown(f"<p style='color:black; font-weight:1000;'>✅ Total Revenue Gain Simulated: ₹{sum(data['Estimated Gain (INR)']):,.0f} (15.03% Growth Achieved)</p>", unsafe_allow_html=True)
 
 # Footer
 st.markdown("""
