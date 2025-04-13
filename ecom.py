@@ -38,17 +38,45 @@ data = {
 }
 df_sim = pd.DataFrame(data)
 
-# KPIs Section
-st.markdown("<h3 style='margin-top: 40px;'>📌 Key Performance Indicators</h3>", unsafe_allow_html=True)
-kpi1, kpi2, kpi3 = st.columns(3)
-kpi1.metric("Gross Revenue", "₹9.43 Cr")
-kpi2.metric("Net Revenue", "₹8.24 Cr")
-kpi3.metric("Profit Margin", "85.7%")
-
-kpi4, kpi5, kpi6 = st.columns(3)
-kpi4.metric("Return Rate", "14.2%")
-kpi5.metric("Cart Abandonment Rate", "62.1%")
-kpi6.metric("Avg. Order Value (AOV)", "₹3,270")
+# KPI Cards - Custom HTML/CSS Layout
+st.markdown("""
+    <style>
+        .kpi-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .kpi-card {
+            flex: 1;
+            min-width: 200px;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #f0f4fa;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .kpi-title {
+            font-size: 15px;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+        .kpi-value {
+            font-size: 24px;
+            color: #4B8BBE;
+            font-weight: bold;
+        }
+    </style>
+    <div class='kpi-container'>
+        <div class='kpi-card'><div class='kpi-title'>Gross Revenue</div><div class='kpi-value'>₹9.43 Cr</div></div>
+        <div class='kpi-card'><div class='kpi-title'>Net Revenue</div><div class='kpi-value'>₹8.24 Cr</div></div>
+        <div class='kpi-card'><div class='kpi-title'>Profit Margin</div><div class='kpi-value'>85.7%</div></div>
+        <div class='kpi-card'><div class='kpi-title'>Return Rate</div><div class='kpi-value'>14.2%</div></div>
+        <div class='kpi-card'><div class='kpi-title'>Cart Abandonment</div><div class='kpi-value'>62.1%</div></div>
+        <div class='kpi-card'><div class='kpi-title'>AOV</div><div class='kpi-value'>₹3,270</div></div>
+    </div>
+""", unsafe_allow_html=True)
 
 # Bar Chart Visualization
 st.markdown("<h3 style='margin-top: 40px;'>📈 Revenue Gain by Strategy</h3>", unsafe_allow_html=True)
