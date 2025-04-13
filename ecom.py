@@ -16,8 +16,8 @@ st.markdown("""
 
 # Title Section
 st.markdown("""
-    <h1 style='text-align: center; color: #4B8BBE;'>📊 E-commerce Revenue Optimization Dashboard</h1>
-    <p style='text-align: center; color: gray;'>Track KPIs, Analyze Strategic Simulations, and Forecast Revenue Growth</p>
+    <h1 style='text-align: center; color: black;'>📊 E-commerce Revenue Optimization Dashboard</h1>
+    <p style='text-align: center; color: black;'>Track KPIs, Analyze Strategic Simulations, and Forecast Revenue Growth</p>
 """, unsafe_allow_html=True)
 
 # Load summary data
@@ -88,7 +88,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Bar Chart Visualization
-st.markdown("<h3 style='margin-top: 40px;'>📈 Revenue Gain by Strategy</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='margin-top: 40px; color: black;'>📈 Revenue Gain by Strategy</h3>", unsafe_allow_html=True)
 bar_fig = px.bar(
     df_sim.sort_values("Estimated Gain (INR)", ascending=False),
     x="Estimated Gain (INR)",
@@ -112,8 +112,7 @@ with st.expander("📋 View Simulation Data Table"):
     st.dataframe(df_display, use_container_width=True)
 
 # Total Uplift Summary
-total_gain = sum(data["Estimated Gain (INR)"])
-st.success(f"✅ Total Revenue Gain Simulated: ₹{total_gain:,.0f} (15.03% Growth Achieved)")
+st.markdown(f"<p style='color:black; font-weight:600;'>✅ Total Revenue Gain Simulated: ₹{sum(data['Estimated Gain (INR)']):,.0f} (15.03% Growth Achieved)</p>", unsafe_allow_html=True)
 
 # Footer
 st.markdown("""
