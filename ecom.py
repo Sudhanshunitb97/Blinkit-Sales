@@ -5,11 +5,11 @@ import plotly.express as px
 # Page config
 st.set_page_config(page_title="E-commerce Strategy Dashboard", layout="wide")
 
-# Set white background globally
+# Light theme background
 st.markdown("""
     <style>
         body, .stApp {
-            background-color: white;
+            background-color: white !important;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -47,7 +47,7 @@ data = {
 }
 df_sim = pd.DataFrame(data)
 
-# KPI Cards - Black Cards with White Text
+# KPI Cards - Black Cards on White Background
 st.markdown("""
     <style>
         .kpi-container {
@@ -101,7 +101,7 @@ bar_fig.update_layout(
     xaxis_title="Estimated Gain (INR)",
     yaxis_title="",
     height=500,
-    template="simple_white"
+    template="plotly_white"
 )
 st.plotly_chart(bar_fig, use_container_width=True)
 
