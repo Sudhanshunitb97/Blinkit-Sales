@@ -5,6 +5,15 @@ import plotly.express as px
 # Page config
 st.set_page_config(page_title="E-commerce Strategy Dashboard", layout="wide")
 
+# Set white background globally
+st.markdown("""
+    <style>
+        body, .stApp {
+            background-color: white;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 # Title Section
 st.markdown("""
     <h1 style='text-align: center; color: #4B8BBE;'>📊 E-commerce Revenue Optimization Dashboard</h1>
@@ -38,7 +47,7 @@ data = {
 }
 df_sim = pd.DataFrame(data)
 
-# KPI Cards - Custom HTML/CSS Layout
+# KPI Cards - Black Cards with White Text
 st.markdown("""
     <style>
         .kpi-container {
@@ -53,18 +62,18 @@ st.markdown("""
             min-width: 200px;
             padding: 20px;
             border-radius: 12px;
-            background-color: #f0f4fa;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            background-color: #1c1c1c;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             text-align: center;
         }
         .kpi-title {
             font-size: 15px;
-            color: #6c757d;
+            color: #ffffff;
             margin-bottom: 5px;
         }
         .kpi-value {
             font-size: 24px;
-            color: #4B8BBE;
+            color: #ffffff;
             font-weight: bold;
         }
     </style>
