@@ -2,8 +2,10 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+# Set page layout
 st.set_page_config(page_title="E-commerce Strategy Dashboard", layout="wide")
 
+# Light background
 st.markdown("""
     <style>
         body, .stApp {
@@ -12,12 +14,13 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+# Title
 st.markdown("""
     <h1 style='text-align: center; color: black;'>📊 E-commerce Revenue Optimization Dashboard</h1>
     <p style='text-align: center; color: black;'>Track KPIs, Analyze Strategic Simulations, and Forecast Revenue Growth</p>
 """, unsafe_allow_html=True)
 
-# Actual Project Results
+# Finalized simulations
 data = {
     "Strategy": [
         "Reduce Tier 3 Return Rate by 5%",
@@ -98,18 +101,18 @@ bar_fig.update_layout(
 )
 st.plotly_chart(bar_fig, use_container_width=True)
 
-# Simulation Table
+# Data Table
 with st.expander("📋 View Simulation Data Table"):
     df_display = df_sim.copy()
     df_display["Estimated Gain (INR)"] = df_display["Estimated Gain (INR)"].apply(lambda x: f"₹{x:,.0f}")
     st.dataframe(df_display, use_container_width=True)
 
-# Total Gain
+# Final Total
 total_gain = sum(data['Estimated Gain (INR)'])
 st.markdown(f"<p style='color:black; font-weight:1000;'>✅ Total Simulated Revenue Gain: ₹{total_gain:,.0f} (~15–20% Growth)</p>", unsafe_allow_html=True)
 
 # Footer
 st.markdown("""
     <hr>
-    <p style='text-align: center; color: gray;'>Dashboard built with ❤️ using Streamlit | A Full-Stack Data Strategy Showcase</p>
+    <p style='text-align: center; color: gray;'>Dashboard built with ❤️ using Streamlit | Full-Stack Data Strategy Showcase</p>
 """, unsafe_allow_html=True)
