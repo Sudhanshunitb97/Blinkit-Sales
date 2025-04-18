@@ -2,10 +2,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# Page config
 st.set_page_config(page_title="E-commerce Strategy Dashboard", layout="wide")
 
-# Light theme background
 st.markdown("""
     <style>
         body, .stApp {
@@ -14,40 +12,35 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Title Section
 st.markdown("""
     <h1 style='text-align: center; color: black;'>📊 E-commerce Revenue Optimization Dashboard</h1>
     <p style='text-align: center; color: black;'>Track KPIs, Analyze Strategic Simulations, and Forecast Revenue Growth</p>
 """, unsafe_allow_html=True)
 
-# Load summary data
+# Actual Project Results
 data = {
     "Strategy": [
         "Reduce Tier 3 Return Rate by 5%",
-        "Increase AOV by ₹100 in Top 30%",
-        "Reduce Fashion Abandonment by 10%",
-        "+1 Order from Champions",
+        "₹100 AOV Increase in Top 30%",
+        "10% Drop in Fashion Cart Abandonment",
         "Improve Funnel Conversion by 5%",
-        "Bundle Skincare + Fragrance",
-        "Reallocate Marketing Budget",
+        "Reallocate 10% Marketing Budget",
         "Logistics Optimization",
-        "Loyalty Program (5% Conversion)"
+        "10% Loyalty Conversion (Non-loyal → loyal)"
     ],
     "Estimated Gain (INR)": [
-        882944,
+        1021408,
         867400,
         1274230,
-        2591354,
         6534513,
-        39900,
-        436876,
+        614244,
         12750,
-        1539314
+        17560205
     ]
 }
 df_sim = pd.DataFrame(data)
 
-# KPI Cards - Black Cards on White Background
+# KPI Cards
 st.markdown("""
     <style>
         .kpi-container {
@@ -87,7 +80,7 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# Bar Chart Visualization
+# Bar Chart
 st.markdown("<h3 style='margin-top: 40px; color: black;'>📈 Revenue Gain by Strategy</h3>", unsafe_allow_html=True)
 bar_fig = px.bar(
     df_sim.sort_values("Estimated Gain (INR)", ascending=False),
@@ -111,8 +104,9 @@ with st.expander("📋 View Simulation Data Table"):
     df_display["Estimated Gain (INR)"] = df_display["Estimated Gain (INR)"].apply(lambda x: f"₹{x:,.0f}")
     st.dataframe(df_display, use_container_width=True)
 
-# Total Uplift Summary
-st.markdown(f"<p style='color:black; font-weight:1000;'>✅ Total Revenue Gain Simulated: ₹{sum(data['Estimated Gain (INR)']):,.0f} (15.03% Growth Achieved)</p>", unsafe_allow_html=True)
+# Total Gain
+total_gain = sum(data['Estimated Gain (INR)'])
+st.markdown(f"<p style='color:black; font-weight:1000;'>✅ Total Simulated Revenue Gain: ₹{total_gain:,.0f} (~15–20% Growth)</p>", unsafe_allow_html=True)
 
 # Footer
 st.markdown("""
